@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="index.js"></script>
+    <title>Dynamic Twitter</title>
+</head>
+<body>
+    <div id="outer-container">
+        <div class="header-container">    
+            <h5 class="full-name"></h5>
+            <p class="tweet-count"></p>
+            <div class="cover-photo">
+            </div>
+        </div>
+        <div class="profile-image-container">
+            <div class="profile-pic">
+            </div>
+            <button>Following</button>
+        </div>
+
+        <div class="profile-details">
+        <h5 class="full-name-again"></h5>
+        <p class="user-name"></p>
+        <p class="joined-date"></p>
+        </div>
+
+        <div class="follows">
+            <div class="following"></div><div class="followers"></div>
+        </div>
+
+        <div class="tweet-container">
+            <h4>Tweets</h4>
+
+
+        </div>
+    </div>
+
+    <script> 
+ 
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+            });
+// Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+
+        let value = params.user;
+        let selectedUser; // "some_value"
+        if (value == undefined) {
+            value = "user1";
+            selectedUser = users[value];
+            console.log ("user 1 selected");
+        }
+        else {
+             selectedUser = users[value];
+        }       
+    //Header only
+        var headerContainer = document.querySelector('.header-container');
+        var fullName = document.querySelector(".full-name");
+        fullName.innerHTML = selectedUser.displayName;
+        var tweetCount = document.querySelector('.tweet-count'); 
+        tweetCount.textContent = `${selectedUser.tweets.length} Tweets`;
+
+        var coverPhoto = document.querySelector('.cover-photo');
+        coverPhoto.style.cssText = `background-image: url(${selectedUser.coverPhotoURL})`;
+
+
+        //Profile
+        var profilePic = document.querySelector ('.profile-pic');
+        profilePic.innerHTML = `
+        <img src =${selectedUser.avatarURL}>
+        `;
+
+        var fullNameAgain = document.querySelector(".full-name-again");
+        fullNameAgain.textContent = selectedUser.displayName;
+        var userName = document.querySelector('.user-name');
+        userName.textContent = selectedUser.userName;
+
+        var joinedDate = document.querySelector(".joined-date");
+        joinedDate.innerHTML = `Joined ${selectedUser.joinedDate}`;
+
+        var followingCount = document.querySelector(".following");
+        followingCount.innerHTML = `<p><strong>${selectedUser.followingCount}</strong> Following</p>`;
+
+        var followersCount = document.querySelector(".followers");
+        followersCount.innerHTML = `<p><strong>${selectedUser.followerCount}</strong> Followers</p>`;
+
+        var tweetContainer = document.querySelector(".tweet-container");
+        var tweetData = selectedUser.tweets.map(function(item){
+            return item;
+        });
+
+        tweetData.forEach(function(tweet){
+            console.log(tweet.text);
+            var tweetDiv = document.createElement('div')
+            tweetDiv.classList.add('tweet-div');
+            tweetDiv.innerHTML = `
+            <p><strong>${fullName.textContent}</strong>  ${userName.textContent} - ${tweet.timestamp}</p>
+            <p>${tweet.text}</p>
+            `;
+            tweetContainer.appendChild(tweetDiv);
+        });
+    </script>
+    
+</body>
+</html>

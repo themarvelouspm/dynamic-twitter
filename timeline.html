@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="index.js"></script>
+    <title>Timeline</title>
+</head>
+<body>
+    <div id="outer-container">
+
+        <div class="tweet-container">
+            <h4>All Tweets</h4>
+
+
+        </div>
+    </div>
+
+    <script> 
+showTimeline();
+function showTimeline(){
+        
+for (var value in users) {
+    var selectedUser = users[value];
+
+    console.log(selectedUser);
+
+
+
+    //Header only
+        var headerContainer = document.querySelector('.header-container');
+        var fullName = document.createElement('h5');
+        fullName.innerHTML = selectedUser.displayName;
+
+        var userName = document.createElement('p');
+        userName.textContent = selectedUser.userName;
+
+        var coverPhoto = document.createElement('div');
+        coverPhoto.style.cssText = `background-image: url(${selectedUser.coverPhotoURL})`;
+
+
+        //Profile
+        var profilePic = document.createElement("div");
+        profilePic.innerHTML = `
+        <img src =${selectedUser.avatarURL}>
+        `;
+
+        var tweetContainer = document.querySelector(".tweet-container");
+    
+                    
+        var tweetData = selectedUser.tweets.map(function(item){
+            return item;
+        });
+
+            tweetData.forEach(function(tweet){
+
+            var tweetDiv = document.createElement('div');
+            tweetDiv.classList.add('tweet-div');
+            tweetDiv.innerHTML = `
+            <p><strong>${selectedUser.displayName}</strong>  ${selectedUser.userName} - ${tweet.timestamp}</p>
+            <p>${tweet.text}</p>
+            `;
+            tweetContainer.appendChild(tweetDiv);
+        });
+    }
+}
+    </script>
+    
+</body>
+</html>
