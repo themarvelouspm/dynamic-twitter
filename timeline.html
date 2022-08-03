@@ -12,7 +12,7 @@
     <div id="outer-container">
 
         <div class="tweet-container">
-            <h4>All Tweets</h4>
+            <h4 class="tab header-container">All Tweets</h4>
 
 
         </div>
@@ -59,8 +59,12 @@ for (var value in users) {
             var tweetDiv = document.createElement('div');
             tweetDiv.classList.add('tweet-div');
             tweetDiv.innerHTML = `
-            <p><strong>${selectedUser.displayName}</strong>  ${selectedUser.userName} - ${tweet.timestamp}</p>
+            <div><img class="pic-in-tweet" src =${selectedUser.avatarURL}>
+            </div>
+            <div>
+            <p><strong>${fullName.textContent}</strong>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
             <p>${tweet.text}</p>
+            </div>
             `;
             tweetContainer.appendChild(tweetDiv);
         });

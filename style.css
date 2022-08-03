@@ -1,9 +1,38 @@
+*{
+    margin: 0px;
+}
+
 #outer-container {
     width: 35%;
     height: 100%;
     margin : auto;
-    /*background-color: red;*/
-    border : 1px solid black;
+    max-width: 600px;
+    margin: 0px auto;
+    border: 1px solid #f1f1f1;
+}
+
+.header-container {
+    padding: 10px 10px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.arrow {
+    display: flex;
+}
+#arrow{
+    cursor: pointer;
+    color:rgb(29, 161, 242);
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
+    padding-right: 15px;  
+}
+
+#arrow:hover{
+    opacity: .7;
 }
 
 .full-name, .tweet-count, .full-name-again,.user-name {
@@ -25,7 +54,14 @@
     transform: translate(10px,-40px);
     border-radius: 50%;
     border: 2px solid white;
-    width: 70px;
+    width: 80px;
+}
+
+.pic-in-tweet {
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 40px;
+    margin: 0px 10px;
 }
 
 .profile-image-container button {
@@ -38,8 +74,27 @@
     background-size: 100%;
 }
 
+
 .profile-details-container {
     height: 100px;
+}
+
+.follow-button{
+    margin-top: 40px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-family:-apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(29, 161, 242);
+    font-weight: 700;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid rgb(29, 161, 242);
+    text-decoration: none;
+    
+}
+.follow-button:hover{
+    cursor: pointer;
+    background-color: rgba(29, 160, 242, 0.137)!important;
 }
 
 .follows {
@@ -55,10 +110,59 @@
     margin : 0px;
 }
 
+
+
+.tabs-container{
+    display: flex;
+    
+}
+.tabs{
+    text-decoration: none;
+    flex-grow: 1;
+    align-self: stretch;
+    text-align: center;
+
+   
+}
+.tab{ 
+    
+    color: rgb(29, 161, 242);
+    font-weight: 700;
+    font-size: 15px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0px;
+    padding: 10px 0px;
+
+}
+.tabs:hover{
+    background-color:rgba(29, 160, 242, 0.137);
+}
+.tab-active{
+    border-bottom: 2px solid rgb(29, 161, 242);
+}
+
 .tweet-div {
+    display: flex;
     padding-bottom :10px;
     border-bottom: 1px solid #f1f1f1;
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 5px;
 }
 .tweet-div p {
     margin :0px;
 }
+
+.full-name, .full-name-again {
+    font-size: 15px;
+    font-weight: 800;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.user-name, .joined-date, .follows, .followers, .time-stamp, .tweet-count {color: rgb(91, 112, 131);
+font-size: 15px;
+font-weight: 400;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+

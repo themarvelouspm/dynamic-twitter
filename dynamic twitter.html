@@ -10,16 +10,25 @@
 </head>
 <body>
     <div id="outer-container">
-        <div class="header-container">    
-            <h5 class="full-name"></h5>
-            <p class="tweet-count"></p>
-            <div class="cover-photo">
-            </div>
+        <div class="header-container"> 
+            <div class="arrow">
+            <a href="#" id="arrow">🡨</a>
+                <div>
+                    <h5 class="full-name"></h5>
+                    <p class="tweet-count"></p>
+                 </div>
+
+            </div>   
+           
         </div>
+
+        <div class="cover-photo">
+        </div>
+
         <div class="profile-image-container">
             <div class="profile-pic">
             </div>
-            <button>Following</button>
+            <a class="follow" href="#"><button class="follow-button">Follow</button></a>
         </div>
 
         <div class="profile-details">
@@ -32,11 +41,15 @@
             <div class="following"></div><div class="followers"></div>
         </div>
 
-        <div class="tweet-container">
-            <h4>Tweets</h4>
+        <div class="tabs-container">
+            <a href = "#tweets-container" class="tabs" id="Tweets"><h6 class="tab tab-active">Tweets</h6></a>
+            <a href = "#tweets-container" class="tabs" id="Tweets & Replies"><h6 class="tab">Tweets & Replies</h6></a>
+            <a href = "#tweets-container" class="tabs" id="Media"><h6 class="tab">Media</h6></a>
+            <a href = "#tweets-container" class="tabs"id="Likes"> <h6 class="tab">Likes</h6></a>
+         </div>
 
+            <div class="tweet-container"></div>        
 
-        </div>
     </div>
 
     <script> 
@@ -73,13 +86,14 @@
         <img src =${selectedUser.avatarURL}>
         `;
 
+
         var fullNameAgain = document.querySelector(".full-name-again");
         fullNameAgain.textContent = selectedUser.displayName;
         var userName = document.querySelector('.user-name');
         userName.textContent = selectedUser.userName;
 
         var joinedDate = document.querySelector(".joined-date");
-        joinedDate.innerHTML = `Joined ${selectedUser.joinedDate}`;
+        joinedDate.innerHTML = `📅 Joined ${selectedUser.joinedDate}`;
 
         var followingCount = document.querySelector(".following");
         followingCount.innerHTML = `<p><strong>${selectedUser.followingCount}</strong> Following</p>`;
@@ -94,14 +108,52 @@
 
         tweetData.forEach(function(tweet){
             console.log(tweet.text);
+           
+
             var tweetDiv = document.createElement('div')
             tweetDiv.classList.add('tweet-div');
-            tweetDiv.innerHTML = `
-            <p><strong>${fullName.textContent}</strong>  ${userName.textContent} - ${tweet.timestamp}</p>
+            tweetDiv.innerHTML =`
+            <div><img class="pic-in-tweet" src =${selectedUser.avatarURL}>
+            </div>
+            <div>
+            <p><strong>${fullName.textContent}</strong>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
             <p>${tweet.text}</p>
+            </div>
+            
             `;
             tweetContainer.appendChild(tweetDiv);
         });
+
+
+var followButton = document.getElementsByClassName("follow-button")[0];
+var following = false;
+
+followButton.addEventListener("click", function() {
+    if(!following){
+        followButton.textContent = "Following";
+        followButton.style.backgroundColor ="rgb(29, 161, 242)";
+        followButton.style.color ="white";
+        following = true;
+        followButton.classList.add("active-button")}
+    else if(following){
+        followButton.textContent = "Follow";
+        followButton.style.backgroundColor ="white";
+        followButton.style.color ="rgb(29, 161, 242)";
+        following = false;
+        followButton.classList.remove("active-button");
+    }
+})
+
+var tabs = document.querySelectorAll(".tab");
+tabs.forEach(tab => {
+    tab.addEventListener('click', function(){
+        for (let tab of tabs){
+            tab.classList.remove("tab-active");
+        }
+        tab.classList.add("tab-active");
+    })
+})
+
     </script>
     
 </body>
