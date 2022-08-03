@@ -20,56 +20,7 @@
 
     <script> 
 showTimeline();
-function showTimeline(){
-        
-for (var value in users) {
-    var selectedUser = users[value];
 
-    console.log(selectedUser);
-
-
-
-    //Header only
-        var headerContainer = document.querySelector('.header-container');
-        var fullName = document.createElement('h5');
-        fullName.innerHTML = selectedUser.displayName;
-
-        var userName = document.createElement('p');
-        userName.textContent = selectedUser.userName;
-
-        var coverPhoto = document.createElement('div');
-        coverPhoto.style.cssText = `background-image: url(${selectedUser.coverPhotoURL})`;
-
-
-        //Profile
-        var profilePic = document.createElement("div");
-        profilePic.innerHTML = `
-        <img src =${selectedUser.avatarURL}>
-        `;
-
-        var tweetContainer = document.querySelector(".tweet-container");
-    
-                    
-        var tweetData = selectedUser.tweets.map(function(item){
-            return item;
-        });
-
-            tweetData.forEach(function(tweet){
-
-            var tweetDiv = document.createElement('div');
-            tweetDiv.classList.add('tweet-div');
-            tweetDiv.innerHTML = `
-            <div><img class="pic-in-tweet" src =${selectedUser.avatarURL}>
-            </div>
-            <div>
-            <p><strong>${fullName.textContent}</strong>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
-            <p>${tweet.text}</p>
-            </div>
-            `;
-            tweetContainer.appendChild(tweetDiv);
-        });
-    }
-}
     </script>
     
 </body>
