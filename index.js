@@ -87,7 +87,7 @@ function showTimeline(){
                 <div><img class="pic-in-tweet" src =${selectedUser.avatarURL}>
                 </div>
                 <div>
-                <p><strong>${fullName.innerHTML}</strong>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
+                <a href="http://127.0.0.1:5500/dynamic%20twitter.html?user=${value}"><p><strong>${fullName.innerHTML}</strong></a>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
                 <p>${tweet.text}</p>
                 </div>
                 `;

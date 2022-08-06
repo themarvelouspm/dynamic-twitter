@@ -58,7 +58,6 @@
         get: (searchParams, prop) => searchParams.get(prop),
             });
 // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-
         let value = params.user;
         let selectedUser; // "some_value"
         if (value == undefined) {
@@ -69,6 +68,7 @@
         else {
              selectedUser = users[value];
         }       
+        
     //Header only
         var headerContainer = document.querySelector('.header-container');
         var fullName = document.querySelector(".full-name");
@@ -116,7 +116,7 @@
             <div><img class="pic-in-tweet" src =${selectedUser.avatarURL}>
             </div>
             <div>
-            <p><strong>${fullName.innerHTML}</strong>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
+            <a href="http://127.0.0.1:5500/dynamic%20twitter.html?user=${value}"><p><strong>${fullName.innerHTML}</strong></a>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
             <p>${tweet.text}</p>
             </div>
             
