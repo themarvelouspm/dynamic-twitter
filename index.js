@@ -57,7 +57,7 @@ function showTimeline(){
         //Header only
             var headerContainer = document.querySelector('.header-container');
             var fullName = document.createElement('h5');
-            fullName.innerHTML = selectedUser.displayName;
+            fullName.innerHTML = `${selectedUser.displayName} <img src="verified.png" height="12" width="12">`;
     
             var userName = document.createElement('p');
             userName.textContent = selectedUser.userName;
@@ -87,7 +87,7 @@ function showTimeline(){
                 <div><img class="pic-in-tweet" src =${selectedUser.avatarURL}>
                 </div>
                 <div>
-                <p><strong>${fullName.textContent}</strong>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
+                <p><strong>${fullName.innerHTML}</strong>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
                 <p>${tweet.text}</p>
                 </div>
                 `;

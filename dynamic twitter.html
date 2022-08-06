@@ -12,7 +12,7 @@
     <div id="outer-container">
         <div class="header-container"> 
             <div class="arrow">
-            <a href="#" id="arrow">🡨</a>
+            <a href="timeline.html" id="arrow">🡨</a>
                 <div>
                     <h5 class="full-name"></h5>
                     <p class="tweet-count"></p>
@@ -72,7 +72,7 @@
     //Header only
         var headerContainer = document.querySelector('.header-container');
         var fullName = document.querySelector(".full-name");
-        fullName.innerHTML = selectedUser.displayName;
+        fullName.innerHTML = `${selectedUser.displayName} <img src="verified.png" height="12" width="12">`;
         var tweetCount = document.querySelector('.tweet-count'); 
         tweetCount.textContent = `${selectedUser.tweets.length} Tweets`;
 
@@ -88,7 +88,7 @@
 
 
         var fullNameAgain = document.querySelector(".full-name-again");
-        fullNameAgain.textContent = selectedUser.displayName;
+        fullNameAgain.innerHTML = fullName.innerHTML;
         var userName = document.querySelector('.user-name');
         userName.textContent = selectedUser.userName;
 
@@ -116,7 +116,7 @@
             <div><img class="pic-in-tweet" src =${selectedUser.avatarURL}>
             </div>
             <div>
-            <p><strong>${fullName.textContent}</strong>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
+            <p><strong>${fullName.innerHTML}</strong>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
             <p>${tweet.text}</p>
             </div>
             
