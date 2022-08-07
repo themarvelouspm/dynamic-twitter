@@ -84,7 +84,7 @@ function showTimeline(){
                 var tweetDiv = document.createElement('div');
                 tweetDiv.classList.add('tweet-div');
                 tweetDiv.innerHTML = `
-                <div><img class="pic-in-tweet" src =${selectedUser.avatarURL}>
+                <div><a href="http://127.0.0.1:5500/dynamic%20twitter.html?user=${value}"><img class="pic-in-tweet" src =${selectedUser.avatarURL}></a>
                 </div>
                 <div>
                 <a href="http://127.0.0.1:5500/dynamic%20twitter.html?user=${value}"><p><strong>${fullName.innerHTML}</strong></a>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
