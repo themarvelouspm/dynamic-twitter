@@ -19,7 +19,7 @@ a:visited {
 }
 
 #outer-container {
-    width: 35%;
+    width: fit-content;
     height: 100%;
     margin : auto;
     max-width: 600px;
@@ -161,6 +161,7 @@ a:visited {
 .tweet-div {
     display: flex;
     padding-bottom :10px;
+    padding-right: 10px;
     border-bottom: 1px solid #f1f1f1;
     color: black;
     font-size: 15px;
