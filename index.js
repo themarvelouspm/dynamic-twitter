@@ -84,14 +84,16 @@ function showTimeline(){
                 var tweetDiv = document.createElement('div');
                 tweetDiv.classList.add('tweet-div');
                 tweetDiv.innerHTML = `
-                <div><a href="http://127.0.0.1:5500/dynamic%20twitter.html?user=${value}"><img class="pic-in-tweet" src =${selectedUser.avatarURL}></a>
+                <div><a href="https://themarvelouspm.github.io/dynamic-twitter.github.io/?user=${value}"><img class="pic-in-tweet" src =${selectedUser.avatarURL}></a>
                 </div>
                 <div>
-                <a href="http://127.0.0.1:5500/dynamic%20twitter.html?user=${value}"><p><strong>${fullName.innerHTML}</strong></a>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
+                <a href="https://themarvelouspm.github.io/dynamic-twitter.github.io/?user=${value}"><p><strong>${fullName.innerHTML}</strong></a>  <span class="user-name">${userName.textContent}</span> - <span class="time-stamp">${tweet.timestamp}</span></p>
                 <p>${tweet.text}</p>
                 </div>
                 `;
                 tweetContainer.appendChild(tweetDiv);
+
+                /*local link is : http://127.0.0.1:5500/dynamic%20twitter.html?user= */ 
             });
         }
     }
